@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 
 const port = 46500;
 var net = require('net');
-var connect;
+var connect = [];
+var countConect = 0;
 
 var router = express.Router();
 
@@ -67,7 +68,8 @@ module.exports = app;
 
 var server = net.createServer(function(connection) {
     console.log('client connected');
-    connect = connection;
+    connect[countConect] = connection;
+    countConect++;
     connection.on('close', function (){
         console.log('client disconnected');
     });
