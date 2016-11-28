@@ -4,5 +4,6 @@ block content
   h1= title
   p Welcome to #{title}
   form(name="form", method="post", action="/enviarmsg")
+      input(type="text", name="sock")
       input(type="text", name="msg")
       input(type="submit", value="enviar")

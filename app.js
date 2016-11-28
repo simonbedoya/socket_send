@@ -37,7 +37,8 @@ app.use('/enviarmsg', router);
 router.post('/', function(req, res, next) {
     console.log(req.body.msg);
     var msg = req.body.msg;
-    connect.write(msg)
+    var socket = req.body.sock;
+    connect[parseInt(socket)].write(msg)
     res.send('se envio mensaje');
 
 
